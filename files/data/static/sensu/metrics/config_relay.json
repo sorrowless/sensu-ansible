@@ -1,0 +1,8 @@
+{
+  "relay": {
+    "graphite": {
+      "host": "{{ sensu_graphite_host }}",
+      "port": {{ sensu_graphite_port }}
+    }
+  }
+}

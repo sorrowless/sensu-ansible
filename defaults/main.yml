@@ -120,6 +120,11 @@ uchiwa_auth_publickey: ~
 # CentOS repository for redis and rabbitmq
 centos_repository: epel
 
+# Whether we should try to export any metrics
+sensu_export_metrics: false
+sensu_graphite_host: 127.0.0.1
+sensu_graphite_port: 2003
+
 # Internal settings
 __bash_path: /bin/bash
 __root_group: root

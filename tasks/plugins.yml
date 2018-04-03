@@ -21,6 +21,7 @@
       - definitions
       - client_definitions
       - extensions
+      - metrics/graphite
 
   - name: Ensure any remote plugins defined are present
     shell: umask 0022; sensu-install -p {{ item }}
@@ -96,6 +97,20 @@
     when: sensu_master
     with_fileglob:
       - "{{ static_data_store }}/sensu/extensions/*"
+    notify:
+      - restart sensu-server service
+      - restart sensu-api service
+      - restart sensu-enterprise service
+
+  - name: Deploy metrics definitions to the master
+    template:
+      src: "{{ item }}"
+      dest: "{{ sensu_config_path }}/conf.d/{{ item | basename | regex_replace('.j2', '')}}"
+      owner: "{{ sensu_user_name }}"
+      group: "{{ sensu_group_name }}"
+    when: sensu_master and sensu_export_metrics
+    with_fileglob:
+      - "{{ static_data_store }}/sensu/metrics/*"
     notify:
       - restart sensu-server service
       - restart sensu-api service
