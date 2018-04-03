@@ -2,7 +2,8 @@
   "relay": {
     "graphite": {
       "host": "{{ sensu_graphite_host }}",
-      "port": {{ sensu_graphite_port }}
+      "port": {{ sensu_graphite_port }},
+      "max_queue_size": 1024
     }
   }
 }
