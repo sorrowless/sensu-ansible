@@ -1,0 +1,11 @@
+{
+  "checks": {
+    "check-uptime-linux": {
+      "command": "/opt/sensu/embedded/bin/check-uptime.rb -w 300",
+      "interval": 60,
+      "occurrences": 5,
+      "subscribers": [ "common_checks" ]
+    }
+  }
+}
+
