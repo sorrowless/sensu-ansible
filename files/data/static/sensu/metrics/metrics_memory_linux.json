@@ -1,0 +1,14 @@
+{
+  "checks": {
+    "metrics-memory-linux": {
+      "type": "metric",
+      "command": "/opt/sensu/embedded/bin/metrics-memory.rb",
+      "interval": 60,
+      "subscribers": [ "common_checks" ],
+      "handlers": [
+        "relay"
+      ]
+    }
+  }
+}
+

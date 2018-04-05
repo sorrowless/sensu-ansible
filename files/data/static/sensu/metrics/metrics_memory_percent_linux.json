@@ -1,0 +1,14 @@
+{
+  "checks": {
+    "metrics-memory-percent-linux": {
+      "type": "metric",
+      "command": "/opt/sensu/embedded/bin/metrics-memory-percent.rb",
+      "interval": 60,
+      "subscribers": [ "common_checks" ],
+      "handlers": [
+        "relay"
+      ]
+    }
+  }
+}
+

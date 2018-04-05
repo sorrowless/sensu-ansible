@@ -1,0 +1,14 @@
+{
+  "checks": {
+    "metrics-uptime-linux": {
+      "type": "metric",
+      "command": "/opt/sensu/embedded/bin/metrics-uptime.rb",
+      "interval": 60,
+      "subscribers": [ "common_checks" ],
+      "handlers": [
+        "relay"
+      ]
+    }
+  }
+}
+

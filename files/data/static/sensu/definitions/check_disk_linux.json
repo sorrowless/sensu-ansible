@@ -1,7 +1,7 @@
 {
   "checks": {
     "check-disk-usage-linux": {
-      "command": "/opt/sensu/embedded/bin/check-disk-usage.rb -w 90 -c 95",
+      "command": "/opt/sensu/embedded/bin/check-disk-usage.rb -w 90 -c 95 -p '^(/var/lib|/run)/docker*'",
       "interval": 60,
       "occurrences": 5,
       "subscribers": [ "common_checks" ]

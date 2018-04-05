@@ -89,14 +89,12 @@
       - restart sensu-enterprise service
 
   - name: Deploy extensions to the master
-    template:
-      src: "{{ item }}"
-      dest: "{{ sensu_config_path }}/extensions/{{ item | basename | regex_replace('.j2', '')}}"
+    copy:
+      src: "{{ static_data_store }}/sensu/extensions/"
+      dest: "{{ sensu_config_path }}/extensions/"
       owner: "{{ sensu_user_name }}"
       group: "{{ sensu_group_name }}"
     when: sensu_master
-    with_fileglob:
-      - "{{ static_data_store }}/sensu/extensions/*"
     notify:
       - restart sensu-server service
       - restart sensu-api service

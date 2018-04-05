@@ -1,0 +1,14 @@
+{
+  "checks": {
+    "metrics-cpu-linux": {
+      "type": "metric",
+      "command": "/opt/sensu/embedded/bin/metrics-cpu-pcnt-usage.rb",
+      "interval": 15,
+      "subscribers": [ "common_checks" ],
+      "handlers": [
+        "relay"
+      ]
+    }
+  }
+}
+

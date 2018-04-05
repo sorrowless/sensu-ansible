@@ -1,0 +1,14 @@
+{
+  "checks": {
+    "metrics-ping-google-linux": {
+      "type": "metric",
+      "command": "/opt/sensu/embedded/bin/metrics-ping.rb -h 8.8.8.8 -c5",
+      "interval": 60,
+      "subscribers": [ "common_checks" ],
+      "handlers": [
+        "relay"
+      ]
+    }
+  }
+}
+

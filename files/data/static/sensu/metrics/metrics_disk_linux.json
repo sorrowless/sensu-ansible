@@ -1,0 +1,13 @@
+{
+  "checks": {
+    "metrics-disk-usage-linux": {
+      "type": "metric",
+      "command": "/opt/sensu/embedded/bin/metrics-disk-usage.rb -i '^(/var/lib|/run)/docker*','^/dev','^/run'",
+      "interval": 60,
+      "subscribers": [ "common_checks" ],
+      "handlers": [
+        "relay"
+      ]
+    }
+  }
+}

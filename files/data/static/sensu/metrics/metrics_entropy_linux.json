@@ -1,0 +1,14 @@
+{
+  "checks": {
+    "metrics-entropy-linux": {
+      "type": "metric",
+      "command": "/opt/sensu/embedded/bin/metrics-entropy.rb",
+      "interval": 60,
+      "subscribers": [ "common_checks" ],
+      "handlers": [
+        "relay"
+      ]
+    }
+  }
+}
+

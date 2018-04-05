@@ -1,0 +1,11 @@
+{
+  "checks": {
+    "check-ping-google-linux": {
+      "command": "/opt/sensu/embedded/bin/check-ping.rb -c 10 -W 0.8 -C 0.9 -h 8.8.8.8",
+      "interval": 60,
+      "occurrences": 5,
+      "subscribers": [ "common_checks" ]
+    }
+  }
+}
+

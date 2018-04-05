@@ -1,0 +1,14 @@
+{
+  "checks": {
+    "metrics-net-linux": {
+      "type": "metric",
+      "command": "/opt/sensu/embedded/bin/metrics-netif.rb --scheme $(hostname --short).net",
+      "interval": 30,
+      "subscribers": [ "common_checks" ],
+      "handlers": [
+        "relay"
+      ]
+    }
+  }
+}
+
