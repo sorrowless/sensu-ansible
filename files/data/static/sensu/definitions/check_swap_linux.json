@@ -1,7 +1,7 @@
 {
   "checks": {
     "check-swap-linux": {
-      "command": "/opt/sensu/embedded/bin/check-swap.rb -r -w 95 -c 98 ",
+      "command": "/opt/sensu/embedded/bin/check-swap-percent.rb -w 95 -c 98 ",
       "interval": 60,
       "occurrences": 5,
       "subscribers": [ "common_checks" ]

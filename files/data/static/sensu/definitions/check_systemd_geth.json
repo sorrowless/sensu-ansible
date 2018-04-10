@@ -1,0 +1,11 @@
+{
+  "checks": {
+    "check-systemd-geth": {
+      "command": "/opt/sensu/embedded/bin/check-systemd.rb -s geth.service",
+      "interval": 60,
+      "occurrences": 5,
+      "subscribers": [ "geth_service" ]
+    }
+  }
+}
+

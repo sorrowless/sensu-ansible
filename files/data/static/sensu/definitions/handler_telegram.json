@@ -1,0 +1,13 @@
+{
+  "handlers": {
+    "telegram": {
+      "type": "pipe",
+      "command": "/opt/sensu/embedded/bin/handler-telegram.rb",
+      "severites": ["critical", "warning", "unknown"]
+    }
+  },
+  "telegram": {
+    "bot_token": "{{ sensu_telegram.bot_token }}",
+    "chat_id": "{{ sensu_telegram.chat_id }}"
+  }
+}

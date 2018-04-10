@@ -1,7 +1,7 @@
 {
   "checks": {
     "check-ports-80": {
-      "command": "/opt/sensu/embedded/bin/check-ports.rb -H localhost -p 80,443",
+      "command": "/opt/sensu/embedded/bin/check-ports.rb -H localhost -p 80",
       "interval": 30,
       "occurrences": 3,
       "subscribers": [ "webservers" ]

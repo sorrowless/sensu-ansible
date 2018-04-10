@@ -1,0 +1,15 @@
+{
+  "handlers": {
+    "slack": {
+      "type": "pipe",
+      "command": "/opt/sensu/embedded/bin/handler-slack.rb",
+      "severites": ["critical", "unknown"]
+      }
+    },
+    "slack": {
+      "webhook_url": "{{ sensu_slack.webhook_url }}",
+      "template": "",
+      "channel": "{{ sensu_slack.channel }}",
+      "bot_name": "{{ sensu_slack.bot_name }}"
+    }
+}

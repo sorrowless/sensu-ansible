@@ -1,0 +1,11 @@
+{
+  "checks": {
+    "check-geth-linux": {
+      "command": "{{ sensu_config_path  }}/plugins/check-geth.sh",
+      "interval": 300,
+      "occurrences": 6,
+      "subscribers": [ "geth_service" ]
+    }
+  }
+}
+
