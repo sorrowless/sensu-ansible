@@ -1,5 +1,5 @@
 {
-{% if sensu_systemd %}
+{% if sensu_systemd is defined%}
   "checks": {
     "check-systemd": {
       "command": "/opt/sensu/embedded/bin/check-systemd.rb -s {% for service in sensu_systemd -%}{{ service }}{%- if not loop.last %},{% endif -%}{% endfor -%}",
