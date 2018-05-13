@@ -122,8 +122,8 @@
 
   - name: Deploy client definitions
     template:
-      src: "{{ static_data_store }}/sensu/client_definitions/{{ item }}/"
-      dest: "{{ sensu_config_path }}/conf.d/{{ item | basename | regex_replace('.j2', '')}}"
+      src: "{{ static_data_store }}/sensu/client_definitions/{{ item }}/{{ item }}.json"
+      dest: "{{ sensu_config_path }}/conf.d/{{ item | basename | regex_replace('.j2', '')}}.json"
       owner: "{{ sensu_user_name }}"
       group: "{{ sensu_group_name }}"
     when: "sensu_available_client_definitions is defined and item in sensu_available_client_definitions.stdout_lines"
