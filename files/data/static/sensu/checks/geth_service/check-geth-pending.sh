@@ -5,13 +5,13 @@ OUT=`geth attach http://localhost:${PORT} --exec "eth.pendingTransactions.length
 RC=$?
 
 if [[ $RC -eq 0 ]]; then
-  if [[ $OUT -lt 10 ]]; then
+  if [[ $OUT -lt 15 ]]; then
     echo "OK: Geth eth.pendingTransactions.length is ${OUT}"
     exit 0
   else
     echo "Critical: geth command returns: $OUT"
     exit 2
-  fi    
+  fi
 else
   echo "Critical: geth command returns: $OUT"
   exit 2
