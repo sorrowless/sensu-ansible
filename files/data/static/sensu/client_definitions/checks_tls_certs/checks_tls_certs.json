@@ -1,0 +1,16 @@
+{
+{% if sensu_check_tls is defined%}
+  "checks": {
+  {% for check in sensu_check_tls %}
+    "check-{{ check.name }}": {
+      "command": "{{ sensu_config_path  }}/plugins/check-cert.sh {{ check.path }} {% if check.warntime %}{{ check.warntime}}{% endif %} {% if check.crittime %}{{ check.crittime}}{% endif -%}",
+      "interval": 3600,
+      "occurrences": 1,
+      "subscribers": [ "checks_tls_certs" ],
+      "standalone": true
+    }{{ "," if not loop.last else ""}}
+  {% endfor %}
+  }
+{% endif %}
+}
+
