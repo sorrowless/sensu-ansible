@@ -21,17 +21,22 @@
     url: https://packages.erlang-solutions.com/ubuntu/erlang_solutions.asc
     state: present
 
-- name: Ensure compatible Erlang repo
-  apt:
-    deb: http://packages.erlang-solutions.com/site/esl/esl-erlang/FLAVOUR_1_general/esl-erlang_20.3.6-1~ubuntu~xenial_amd64.deb
+    #- name: Ensure compatible Erlang repo
+    #  apt:
+    #    deb: http://packages.erlang-solutions.com/site/esl/esl-erlang/FLAVOUR_1_general/esl-erlang_20.3.6-1~ubuntu~xenial_amd64.deb
 
     # Current Erlang version is not compatible with RMQ, so workaround that a bit
-    #  - name: Ensure the Erlang APT repo is present
-    #    apt_repository:
-    #      repo: "deb https://packages.erlang-solutions.com/ubuntu {{ ansible_distribution_release }} contrib"
-    #      filename: erlang
-    #      state: present
-    #      update_cache: true
+- name: Ensure the Erlang APT repo is present
+  apt_repository:
+    repo: "deb https://packages.erlang-solutions.com/ubuntu {{ ansible_distribution_release }} contrib"
+    filename: erlang
+    state: present
+    update_cache: true
+
+- name: Pin Erlang version to 20.3.6
+  copy:
+    src: erlang.aptpin
+    dest: /etc/apt/preferences.d/erlang
 
 - name: Ensure RabbitMQ is installed
   apt:
