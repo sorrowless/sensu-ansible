@@ -1,7 +1,7 @@
 {
 {% if crypto_parser_health is defined%}
   "checks": {
-    "check-systemd": {
+    "check-cryptoparser": {
       "command": "{{ sensu_config_path  }}/plugins/check-parser.sh {{ crypto_parser_health.url }}",
       "interval": 60,
       "occurrences": 3,
