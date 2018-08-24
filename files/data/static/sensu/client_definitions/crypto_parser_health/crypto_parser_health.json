@@ -6,7 +6,13 @@
       "interval": 60,
       "occurrences": 3,
       "subscribers": [ "crypto_parser_health" ],
-      "standalone": true
+      "standalone": true,
+      "hooks": {
+        "non-zero": {
+          "command": "sudo systemctl restart nodelistener",
+          "timeout": 10
+        }
+      }
     }
   }
 {% endif %}
