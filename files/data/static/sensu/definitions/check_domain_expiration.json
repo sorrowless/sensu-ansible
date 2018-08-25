@@ -1,4 +1,5 @@
 {
+  {{% if sensu_domain_expiration is defined %}}
   "checks": {
     "check-domain-expiration": {
       "command": "/opt/sensu/embedded/bin/check-whois-domain-expiration.rb -d {{ sensu_domain_expiration.domain }}",
@@ -7,4 +8,5 @@
       "subscribers": [ "domain_expiration_checks" ]
     }
   }
+  {{% endif %}}
 }
