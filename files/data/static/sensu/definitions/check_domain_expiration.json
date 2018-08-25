@@ -1,0 +1,10 @@
+{
+  "checks": {
+    "check-domain-expiration": {
+      "command": "/opt/sensu/embedded/bin/check-whois-domain-expiration.rb -d {{ sensu_domain_expiration.domain }}",
+      "interval": {{ sensu_domain_expiration.check_interval }},
+      "occurrences": 3,
+      "subscribers": [ "domain_expiration_checks" ]
+    }
+  }
+}

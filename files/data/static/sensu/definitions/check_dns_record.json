@@ -1,0 +1,10 @@
+{
+  "checks": {
+    "check-dns-record": {
+      "command": "/opt/sensu/embedded/bin/check-dns.rb -d {{ sensu_check_dns.domain }} -r {{ sensu_check_dns.ips }}",
+      "interval": 60,
+      "occurrences": 3,
+      "subscribers": [ "domain_dns_checks" ]
+    }
+  }
+}
