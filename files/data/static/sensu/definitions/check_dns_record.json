@@ -1,5 +1,5 @@
 {
-  {{% if sensu_check_dns is defined %}}
+  {% if sensu_check_dns is defined %}
   "checks": {
     "check-dns-record": {
       "command": "/opt/sensu/embedded/bin/check-dns.rb -d {{ sensu_check_dns.domain }} -r {{ sensu_check_dns.ips }}",
@@ -8,5 +8,5 @@
       "subscribers": [ "domain_dns_checks" ]
     }
   }
-  {{% endif %}}
+  {% endif %}
 }
