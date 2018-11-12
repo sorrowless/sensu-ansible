@@ -4,7 +4,7 @@
     "check-systemd": {
       "command": "/opt/sensu/embedded/bin/check-systemd.rb -s {% for service in sensu_systemd -%}{{ service }}{%- if not loop.last %},{% endif -%}{% endfor -%}",
       "interval": 60,
-      "occurrences": 3,
+      "occurrences": 2,
       "subscribers": [ "checks_systemd" ],
       "standalone": true
     }

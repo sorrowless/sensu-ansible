@@ -4,13 +4,18 @@
       "command": "{{ sensu_config_path  }}/plugins/check-geth.sh",
       "interval": 300,
       "occurrences": 3,
-      "subscribers": [ "geth_service" ]
+      "subscribers": [ "checks_geth_service" ]
     },
     "check-geth-pending-linux": {
       "command": "{{ sensu_config_path  }}/plugins/check-geth-pending.sh",
       "interval": 120,
       "occurrences": 4,
-      "subscribers": [ "geth_service" ]
+      "subscribers": [ "checks_geth_service" ],
+      "hooks": {
+        "non-zero": {
+          "command": "sudo systemctl restart gunicorn guicorn.socket nodelistener",
+          "timeout": 10
+        }
     }
   }
 }
