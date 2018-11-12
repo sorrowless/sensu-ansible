@@ -16,6 +16,7 @@
           "command": "sudo systemctl restart gunicorn guicorn.socket nodelistener",
           "timeout": 10
         }
+      }
     }
   }
 }
