@@ -1,7 +1,7 @@
 {
   "checks": {
     "check-disk-usage-linux": {
-      "command": "/opt/sensu/embedded/bin/check-disk-usage.rb -x tracefs -w 90 -c 95 -p '^(/var/lib/docker|/run/docker|/snap).*'",
+      "command": "/opt/sensu/embedded/bin/check-disk-usage.rb -x tracefs -w 90 -c 95 -p '^(/var/lib/docker|/run/docker|/snap|/var/lib/kubelet).*'",
       "interval": 60,
       "occurrences": 5,
       "subscribers": [ "common_checks" ]
