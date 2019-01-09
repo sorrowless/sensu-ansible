@@ -15,7 +15,7 @@
  ],
  "uchiwa": {
    {% if uchiwa_users %}
-   "users": {{ uchiwa_users | to_nice_json }},
+   "users": [{{ uchiwa_users | to_nice_json }}],
    {% endif %}
    "port": {{ uchiwa_port }},
    {% if uchiwa_auth_privatekey %}

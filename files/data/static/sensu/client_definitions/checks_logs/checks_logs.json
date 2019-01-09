@@ -1,0 +1,16 @@
+{
+{% if sensu_checks_logs is defined%}
+  "checks": {
+{% for row in sensu_checks_logs %}
+    "checks-logs-{{ row.name }}": {
+      "command": "/opt/sensu/embedded/bin/check-log.rb -f {{ row.log_file }} --pattern {{ row.pattern }}",
+      "interval": 60,
+      "occurrences": 1,
+      "subscribers": [ "checks_logs" ],
+      "standalone": true
+    }{% if not loop.last %},{% endif %}
+{% endfor %}
+  }
+{% endif %}
+}
+
