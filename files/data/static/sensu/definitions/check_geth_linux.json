@@ -17,6 +17,12 @@
           "timeout": 10
         }
       }
+    },
+    "check-geth-blocknumber-linux": {
+      "command": "{{ sensu_config_path  }}/plugins/check-geth-blocknumber.sh",
+      "interval": 60,
+      "occurrences": 10,
+      "subscribers": [ "checks_geth_service" ]
     }
   }
 }
