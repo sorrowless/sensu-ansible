@@ -1,13 +1,13 @@
 {
   "checks": {
     "check-geth-linux": {
-      "command": "{{ sensu_config_path  }}/plugins/check-geth.sh",
+      "command": "{{ sensu_config_path }}/plugins/check-geth.sh",
       "interval": 300,
       "occurrences": 3,
       "subscribers": [ "checks_geth_service" ]
     },
     "check-geth-pending-linux": {
-      "command": "{{ sensu_config_path  }}/plugins/check-geth-pending.sh",
+      "command": "{{ sensu_config_path }}/plugins/check-geth-pending.sh",
       "interval": 120,
       "occurrences": 4,
       "subscribers": [ "checks_geth_service" ],
@@ -19,7 +19,13 @@
       }
     },
     "check-geth-blocknumber-linux": {
-      "command": "{{ sensu_config_path  }}/plugins/check-geth-blocknumber.sh",
+      "command": "{{ sensu_config_path }}/plugins/check-geth-blocknumber.sh",
+      "interval": 60,
+      "occurrences": 10,
+      "subscribers": [ "checks_geth_service" ]
+    },
+    "check-geth-version-linux": {
+      "command": "{{ sensu_config_path }}/plugins/check-geth-version.sh",
       "interval": 60,
       "occurrences": 10,
       "subscribers": [ "checks_geth_service" ]

@@ -1,0 +1,12 @@
+{
+  {% if check_geth_sync is defined %}
+  "checks": {
+    "check-geth-sync-linux": {
+      "command": "{{ sensu_config_path }}/plugins/check-geth-sync.py {{ check_geth_sync.apiurl }} {{ check_geth_sync.apitoken }} {{ check_geth_sync.gethurl }} {{ check_geth_sync.blockscountalert }}",
+      "interval": 60,
+      "occurrences": 10,
+      "subscribers": [ "checks_geth_service" ],
+      "standalone": true
+    }
+  }{% endif %}
+}
