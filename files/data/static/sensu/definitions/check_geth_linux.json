@@ -26,8 +26,8 @@
     },
     "check-geth-version-linux": {
       "command": "{{ sensu_config_path }}/plugins/check-geth-version.sh",
-      "interval": 60,
-      "occurrences": 10,
+      "interval": 600,
+      "occurrences": 3,
       "subscribers": [ "checks_geth_service" ]
     }
   }
