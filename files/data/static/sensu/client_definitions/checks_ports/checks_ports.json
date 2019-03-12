@@ -5,7 +5,7 @@
     "check-{{ check.name }}": {
       "command": "{{ sensu_config_path  }}/plugins/check-ports.py --host {{ check.host }} --ports {% for port in check.ports %}{{ port }} {% endfor %} {% if check.crit_if_open %}--reverse{% endif %} {% if check.timeout %}-t {{ check.timeout }}{% endif -%}",
       "interval": {{ check.check_interval }},
-      "occurrences": 1,
+      "occurrences": {{ check.check_occurences | default(2, true) }},
       "subscribers": [ "checks_ports" ],
       "standalone": true
     }{{ "," if not loop.last else ""}}
