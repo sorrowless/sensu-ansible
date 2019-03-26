@@ -1,12 +1,15 @@
 {
   {% if check_btc_sync is defined %}
   "checks": {
-    "check-btc-sync-linux": {
-      "command": "{{ sensu_config_path }}/plugins/check-btc-sync.py {{ check_btc_sync.apiurl }} {{ check_btc_sync.localbtcurl }} {{ check_btc_sync.blockscountalert }}",
+  {% for check in check_btc_sync %}
+    "check-btc-sync-{{ check.name }}": {
+      "command": "{{ sensu_config_path }}/plugins/check-btc-sync.py {{ check.apiurl }} {{ check.localbtcurl }} {{ check.blockscountalert }}",
       "interval": 60,
       "occurrences": 10,
       "subscribers": [ "checks_btc_service" ],
       "standalone": true
-    }
-  }{% endif %}
+    }{{ "," if not loop.last else ""}}
+  {% endfor %}
+  }
+{% endif %}
 }
