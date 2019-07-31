@@ -13,7 +13,7 @@
       "subscribers": [ "checks_geth_service" ],
       "hooks": {
         "non-zero": {
-          "command": "sudo systemctl restart gunicorn nodelistener",
+          "command": "sudo systemctl restart nodelistener",
           "timeout": 10
         }
       }
