@@ -1,0 +1,10 @@
+{
+  "checks": {
+    "check_adaptec_raid": {
+      "command": "sudo /usr/sbin/aacraid-status -n",
+      "interval": 600,
+      "occurrences": 1,
+      "subscribers": [ "check_adaptec_raid" ]
+    }
+  }
+}
