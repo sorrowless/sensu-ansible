@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-
+import cfscrape
+import json
 import requests
 import sys
 
@@ -33,8 +34,10 @@ ethscan_url = 'https://{remote_host}/api?module=proxy&action=eth_blockNumber&api
         remote_host=remote_host,
         api_token=api_token)
 
-r = requests.get(ethscan_url)
-ethscan_bnum = int(r.json()['result'], 16)
+scraper = cfscrape.create_scraper()  # returns a CloudflareScraper instance
+rez = scraper.get(ethscan_url).content
+
+ethscan_bnum = int(json.loads(rez.decode('utf-8'))['result'], 16)
 
 # Calc and alert if unsync is too big
 message = "{} block number is {}, local is {}".format(
