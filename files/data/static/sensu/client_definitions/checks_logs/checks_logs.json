@@ -3,7 +3,7 @@
   "checks": {
 {% for row in sensu_checks_logs %}
     "checks-logs-{{ row.name }}": {
-      "command": "/opt/sensu/embedded/bin/check-log.rb -s {{ row.state_dir }} -f {{ row.log_file }} --pattern {{ row.pattern }}",
+      "command": "/opt/sensu/embedded/bin/check-log.rb -s {{ row.state_dir }} -f {{ row.log_file }} --pattern {{ row.pattern }} -w {{ row.warning | default(30) }} -c {{ row.critical | default(50) }}",
       "interval": 60,
       "occurrences": 1,
       "subscribers": [ "checks_logs" ],
