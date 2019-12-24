@@ -1,0 +1,32 @@
+{
+  "checks": {
+    "metrics-postgres-statsdb": {
+      "type": "metric",
+      "command": "/opt/sensu/embedded/bin/metric-postgres-statsdb.rb  -u {{ sensu_postgres.user }} -p {{ sensu_postgres.pass }} -h {{ sensu_postgres.host | default('127.0.0.1') }} -d {{ sensu_postgres.database }}",
+      "interval": 60,
+      "subscribers": [ "postgres_checks" ],
+      "handlers": [
+        "relay"
+      ]
+    },
+    "metrics-postgres-dbsize": {
+      "type": "metric",
+      "command": "/opt/sensu/embedded/bin/metric-postgres-dbsize.rb  -u {{ sensu_postgres.user }} -p {{ sensu_postgres.pass }} -h {{ sensu_postgres.host | default('127.0.0.1') }} -d {{ sensu_postgres.database }}",
+      "interval": 60,
+      "subscribers": [ "postgres_checks" ],
+      "handlers": [
+        "relay"
+      ]
+    },
+    "metrics-postgres-connections": {
+      "type": "metric",
+      "command": "/opt/sensu/embedded/bin/metric-postgres-connections.rb  -u {{ sensu_postgres.user }} -p {{ sensu_postgres.pass }} -h {{ sensu_postgres.host | default('127.0.0.1') }} -d {{ sensu_postgres.database }}",
+      "interval": 60,
+      "subscribers": [ "postgres_checks" ],
+      "handlers": [
+        "relay"
+      ]
+    }
+  }
+}
+

@@ -1,0 +1,14 @@
+{
+{% if sensu_postgres is defined%}
+  "checks": {
+    "check-postgres-alive": {
+      "command": "/opt/sensu/embedded/bin/check-postgres-alive.rb -u {{ sensu_postgres.user }} -p {{ sensu_postgres.pass }} -h {{ sensu_postgres.host | default('127.0.0.1') }} -d {{ sensu_postgres.database }}",
+      "interval": "{{ sensu_postgres.interval] | default(30) }}",
+      "occurrences": 2,
+      "subscribers": [ "checks_postgres" ],
+      "standalone": true
+    }
+  }
+{% endif %}
+}
+
