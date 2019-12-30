@@ -2,8 +2,8 @@
 {% if sensu_postgres is defined%}
   "checks": {
     "check-postgres-alive": {
-      "command": "/opt/sensu/embedded/bin/check-postgres-alive.rb -u {{ sensu_postgres.user }} -p {{ sensu_postgres.pass }} -h {{ sensu_postgres.host | default('127.0.0.1') }} -d {{ sensu_postgres.database }}",
-      "interval": "{{ sensu_postgres.interval] | default(30) }}",
+      "command": "/usr/bin/ruby2.4 /var/lib/gems/2.4.0/gems/sensu-plugins-postgres-3.0.0/bin/check-postgres-alive.rb -u {{ sensu_postgres.user }} -p {{ sensu_postgres.pass }} -h {{ sensu_postgres.host | default('127.0.0.1') }} -d {{ sensu_postgres.database }}",
+      "interval": {{ sensu_postgres.interval | default(30) }},
       "occurrences": 2,
       "subscribers": [ "checks_postgres" ],
       "standalone": true
